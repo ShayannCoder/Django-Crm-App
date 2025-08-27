@@ -1,7 +1,24 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>Customer Record:</h1>
+<h3>Customer Record:</h3>
+<div class="card">
+  <div class="card-header">
+    <strong>{{record.first_name}} {{record.last_name}}</strong>
+  </div>
+  <div class="card-body">
+    <strong>Id:</strong><p class="card-text">{{record.id}}</p>
+    <strong>Email:</strong><p class="card-text">{{record.email}}</p>
+    <strong>Phone:</strong><p class="card-text">{{record.phone_number}}</p>
+    <strong>Address:</strong><p class="card-text">{{record.address}}</p>
+    <strong>City:</strong><p class="card-text">{{record.city}}</p>
+    <strong>Zipcode:</strong><p class="card-text">{{record.zipcode}}</p>
+    <strong>Creation Date:</strong><p class="card-text">{{record.created_at}}</p>
+  </div>
+</div>
+<br>
+<a href="{% url "home" %}" class="btn btn-primary">Home</a>
+<a href="{% url "home" %}" class="btn btn-danger">Delete</a>
 
 
 {% endblock content %}
