@@ -3,12 +3,15 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm
+from .models import Record
 
 # Create your views here.
 
 @login_required
 def home(request):
-    return render(request, "home.html")
+    records = Record.objects.all()
+    context = {"records":records}
+    return render(request, "home.html", context)
 
 
 def register_user(request):
