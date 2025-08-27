@@ -61,4 +61,4 @@ def customer_record(request, pk):
         return render(request, "customer_record.html", context)
     else:
         messages.success(request, "You Must Be Logged In To View That Page.")
-        return redirect("home")
+        return redirect("login")
