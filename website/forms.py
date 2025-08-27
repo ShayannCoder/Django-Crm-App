@@ -13,7 +13,7 @@ class UserRegistrationForm(UserCreationForm):
         fields = ["username", "first_name", "last_name", "email", "password1", "password2"]
 
 
-class AddRecord(forms.Form):
+class AddRecord(forms.ModelForm):
     first_name = forms.CharField(max_length=100)
     last_name = forms.CharField(max_length=100)
     email = forms.EmailField()

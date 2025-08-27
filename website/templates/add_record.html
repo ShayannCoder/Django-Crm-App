@@ -23,6 +23,7 @@
         {% endif %}
         {{ new_record|crispy }}
         <button type="submit" class="btn btn-primary">Add</button>
+        <a href="{% url "home" %}" class="btn btn-Danger">Canel</a>
     </form>
 </div>
 {% endblock content %}
