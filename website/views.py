@@ -52,3 +52,13 @@ def logout_user(request):
     logout(request)
     messages.success(request, "You Have Been Logged Out.")
     return redirect("login")
+
+
+def customer_record(request, pk):
+    if request.user.is_authenticated:
+        record = Record.objects.get(id=pk)
+        context = {"record":record}
+        return render(request, "customer_record.html", context)
+    else:
+        messages.success(request, "You Must Be Logged In To View That Page.")
+        return redirect("home")
