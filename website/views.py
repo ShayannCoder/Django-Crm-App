@@ -7,7 +7,7 @@ from .models import Record
 
 # Create your views here.
 
-@login_required
+
 def home(request):
     records = Record.objects.all()
     context = {"records":records}
@@ -61,4 +61,15 @@ def customer_record(request, pk):
         return render(request, "customer_record.html", context)
     else:
         messages.success(request, "You Must Be Logged In To View That Page.")
+        return redirect("login")
+    
+
+def delete_record(request, pk):
+    if request.user.is_authenticated:
+        delete_record = Record.objects.get(id=pk)
+        delete_record.delete()
+        messages.success(request, "Record Successfully Deleted.")
+        return redirect("home")
+    else:
+        messages.success(request, "You Must Be Logged In To Delete a Record.")
         return redirect("login")
