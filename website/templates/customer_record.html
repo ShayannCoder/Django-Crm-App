@@ -18,6 +18,7 @@
 </div>
 <br>
 <a href="{% url "home" %}" class="btn btn-primary">Home</a>
+<a href="{% url "update_record" pk=record.id %}" class="btn btn-primary">Edit</a>
 <a href="{% url "delete_record" pk=record.id %}" class="btn btn-danger">Delete</a>
 
 
