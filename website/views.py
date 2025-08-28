@@ -95,7 +95,7 @@ def add_record(request):
 def update_record(request, pk):
     if request.user.is_authenticated:
         current_record = Record.objects.get(id=pk)
-        updated_record = AddRecord(request.POST, instance=current_record)
+        updated_record = AddRecord(request.POST or None, instance=current_record)
         if updated_record.is_valid():
             updated_record.save()
             messages.success(request, "Record Has Been Updated Successfully.")
