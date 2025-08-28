@@ -9,7 +9,7 @@
 <div class="col-md-6 offset-md-3">
     <h1>Update Record</h1>
     <br>
-    <form action="{% url "update_record" %} " method="POST">
+    <form method="POST">
         {% csrf_token %}
         {% if new_record.errors %}
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -21,7 +21,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endif %}
-        {{ update_record|crispy }}
+        {{ updated_record|crispy }}
         <button type="submit" class="btn btn-primary">Update</button>
         <a href="{% url "home" %}" class="btn btn-danger">Cancel</a>
     </form>
