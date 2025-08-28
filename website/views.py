@@ -100,7 +100,7 @@ def update_record(request, pk):
             updated_record.save()
             messages.success(request, "Record Has Been Updated Successfully.")
             return redirect("home")
-        context = {"updated_record":update_record}
+        context = {"updated_record":updated_record}
         return render(request, "update_record.html", context)
     else:
         messages.success(request, "You Must Be Logged In To Add a Record.")
